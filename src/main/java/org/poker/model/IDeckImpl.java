@@ -2,13 +2,12 @@ package org.poker.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
-public class DeckImpl implements Deck {
+public class IDeckImpl implements IDeck {
     private final Stack<Card> cards;
 
-    public DeckImpl() {
+    public IDeckImpl() {
         this.cards = new Stack<>();
         initializeDeck();
         shuffle();
@@ -41,11 +40,11 @@ public class DeckImpl implements Deck {
     }
 
     @Override
-    public List<Card> dealHand(final int numberOfCards) {
-        final List<Card> hand = new ArrayList<>();
+    public Hand dealHand(final int numberOfCards) {
+        final ArrayList<Card> cards = new ArrayList<>();
         for (int i = 0; i < numberOfCards; i++) {
-            hand.add(this.cards.pop());
+            cards.add(dealOneCard());
         }
-        return hand;
+        return new Hand(cards);
     }
 }

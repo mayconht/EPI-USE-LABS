@@ -1,16 +1,18 @@
 package org.poker;
 
-import org.poker.model.DeckImpl;
+import org.poker.model.IDeckImpl;
+import org.poker.service.HandEvaluator;
+import org.poker.service.strategy.EHand;
 
 public class Main {
     public static void main(final String[] args) {
 
-        final DeckImpl deck = new DeckImpl();
-        System.out.println(deck.dealOneCard());
-        System.out.println(deck.dealOneCard());
-        System.out.println(deck.dealHand(5));
-        System.out.println(deck.dealHand(5));
-        System.out.println(deck.dealHand(5));
+        final IDeckImpl deck = new IDeckImpl();
+        final HandEvaluator hand = new HandEvaluator();
 
+        for (final EHand eHand : EHand.values()) {
+            System.out.println(eHand);
+            hand.evaluateHand(deck.dealHand(5));
+        }
     }
 }
