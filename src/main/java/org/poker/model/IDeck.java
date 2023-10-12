@@ -1,7 +1,6 @@
 package org.poker.model;
 
 public interface IDeck {
-    void shuffle();
 
     Card dealOneCard();
 

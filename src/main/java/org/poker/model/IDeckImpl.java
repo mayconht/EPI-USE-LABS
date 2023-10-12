@@ -1,7 +1,9 @@
 package org.poker.model;
 
+import org.poker.utils.ShuffleUtils;
+
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 public class IDeckImpl implements IDeck {
@@ -9,17 +11,19 @@ public class IDeckImpl implements IDeck {
 
     public IDeckImpl() {
         this.cards = new Stack<>();
-        initializeDeck();
-        shuffle();
+        initializeGame();
     }
 
-    @Override
-    public void shuffle() {
-        for (int i = 0; i < 3; i++) {
-            System.out.println("Shuffling deck...");
-            Collections.shuffle(this.cards);
-        }
+    private void initializeGame() {
+        initializeDeck();
+        Stack<Card> shuffledCards = ShuffleUtils.collectionShuffle(this.cards);
+        shuffledCards = ShuffleUtils.cutAndShuffle(shuffledCards);
+        shuffledCards = ShuffleUtils.mathRandomShuffle(shuffledCards);
+
+        this.cards.clear();
+        this.cards.addAll(shuffledCards);
     }
+
 
     private void initializeDeck() { //TODO add to properties if I want to change the deck
         final String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
@@ -36,15 +40,35 @@ public class IDeckImpl implements IDeck {
 
     @Override
     public Card dealOneCard() {
-        return this.cards.pop();
+        try {
+            if (this.cards.isEmpty()) {
+                System.out.println("Deck is empty, shuffling and dealing again");
+                initializeDeck();
+            }
+            return this.cards.pop();
+        } catch (final NoSuchElementException e) {
+            throw new IllegalStateException("Deck is empty even after shuffle");
+        }
     }
 
     @Override
     public Hand dealHand(final int numberOfCards) {
-        final ArrayList<Card> cards = new ArrayList<>();
-        for (int i = 0; i < numberOfCards; i++) {
-            cards.add(dealOneCard());
+        try {
+            if (numberOfCards <= 0) {
+                throw new IllegalArgumentException("Invalid number of cards");
+            }
+            if (this.cards.size() < numberOfCards) {
+                System.out.println("Not enough cards in the deck. Shuffling and dealing again.");
+                initializeGame();
+            }
+
+            final ArrayList<Card> cards = new ArrayList<>();
+            for (int i = 0; i < numberOfCards; i++) {
+                cards.add(dealOneCard());
+            }
+            return new Hand(cards);
+        } catch (final Exception e) {
+            throw new IllegalStateException("Error while trying to deal Hand", e);
         }
-        return new Hand(cards);
     }
 }

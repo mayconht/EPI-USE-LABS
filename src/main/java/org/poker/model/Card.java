@@ -4,9 +4,7 @@ public record Card(String suit, String rank) {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "suit='" + this.suit + '\'' +
-                ", rank='" + this.rank + '\'' +
-                '}';
+        return "%s %s".formatted(this.suit, this.rank);
+
     }
 }

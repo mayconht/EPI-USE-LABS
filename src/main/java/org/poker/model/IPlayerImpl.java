@@ -2,7 +2,7 @@ package org.poker.model;
 
 import java.util.List;
 
-public class PlayerImpl implements Player {
+public class IPlayerImpl implements IPlayer {
 
     @Override
     public List<Card> getHand() {
