@@ -15,6 +15,13 @@ public class Main {
         hand.evaluateHand(deck.dealHand(8));
         hand.evaluateHand(deck.dealHand(9));
         hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
 
     }
 }

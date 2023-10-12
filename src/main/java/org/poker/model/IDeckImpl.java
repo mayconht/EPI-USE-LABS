@@ -28,7 +28,7 @@ public class IDeckImpl implements IDeck {
     private void initializeDeck() { //TODO add to properties if I want to change the deck
         final String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
         final String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-
+        this.cards.clear();
         for (final String suit : suits) {
             for (final String rank : ranks) {
                 this.cards.add(new Card(rank, suit));
