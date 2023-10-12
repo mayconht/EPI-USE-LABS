@@ -2,6 +2,7 @@ package org.poker.service.strategy;
 
 import org.poker.model.Card;
 import org.poker.model.Hand;
+import org.poker.utils.CardUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +28,7 @@ public class StraightFlushStrategy implements IHandStrategy {
 
         final List<Integer> ranks = new ArrayList<>();
         for (final Card card : hand.cards()) {
-            ranks.add(Integer.valueOf(card.rank()));
+            ranks.add(CardUtils.convertRank(card.rank()));
         }
 
         Collections.sort(ranks);
