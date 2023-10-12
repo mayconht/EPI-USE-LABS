@@ -26,9 +26,11 @@ public class ShuffleUtils {
 
 
     // Reference: https://en.wikipedia.org/wiki/Shuffling#Riffle
+    // Reference:  https://stackoverflow.com/questions/59397518/creating-a-card-shuffling-program-java
     public static Stack<Card> cutAndShuffle(final Stack<Card> cards) {
+        final int CUTS = 2;
         System.out.println("Cutting and shuffling the deck");
-        for (int cut = 0; cut < 2; cut++) {
+        for (int cut = 0; cut < CUTS; cut++) {
             int cutPoint = (int) (Math.random() * (cards.size() - 1)) + 1;
             final Stack<Card> top = new Stack<>();
             final Stack<Card> bottom = new Stack<>();
