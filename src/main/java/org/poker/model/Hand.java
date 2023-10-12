@@ -1,5 +1,13 @@
 package org.poker.model;
 
-public interface Hand {
-    HandRank evaluateHand();
+import java.util.List;
+
+public record Hand(List<Card> cards) {
+
+    @Override
+    public String toString() {
+        return "Hand{" +
+                "cards=" + this.cards +
+                '}';
+    }
 }
