@@ -28,7 +28,7 @@ public class HandEvaluator {
     }
 
     public void evaluateHand(final Hand hand) {
-        System.out.println("Evaluating hand: " + hand);
+        System.out.println("Hand: " + hand);
         for (final IHandStrategy strategy : this.strategies) {
             if (strategy.appliesTo(hand)) {
                 System.out.println("Hand is a " + strategy.getHand().getHandName());

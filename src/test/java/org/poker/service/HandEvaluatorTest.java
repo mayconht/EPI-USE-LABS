@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HandEvaluatorTest {
 
+    //    reference: https://www.programiz.com/java-programming/bytearrayoutputstream#:~:text=The%20ByteArrayOutputStream%20class%20of%20the,bytes%20to%20store%20the%20data.
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 

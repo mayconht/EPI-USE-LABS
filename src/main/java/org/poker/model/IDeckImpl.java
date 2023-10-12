@@ -1,5 +1,7 @@
 package org.poker.model;
 
+import org.poker.utils.ConfigReader;
+import org.poker.utils.Constants;
 import org.poker.utils.ShuffleUtils;
 
 import java.util.ArrayList;
@@ -26,29 +28,27 @@ public class IDeckImpl implements IDeck {
 
 
     private void initializeDeck() {
-        final String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-//        final String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        final String[] suits = {"♥", "♦", "♣", "♠"};
+        final ConfigReader configReader = new ConfigReader();
+        final String[] ranks = configReader.getRanks();
+        final String[] suits = configReader.getSuits();
         this.cards.clear();
         for (final String suit : suits) {
             for (final String rank : ranks) {
                 this.cards.add(new Card(rank, suit));
             }
         }
-
-        System.out.println("Deck created with " + this.cards.size() + " cards");
     }
 
     @Override
     public Card dealOneCard() {
         try {
             if (this.cards.isEmpty()) {
-                System.out.println("Deck is empty, shuffling and dealing again");
+                System.out.println(Constants.DECK_IS_EMPTY_SHUFFLING_AND_DEALING_AGAIN);
                 initializeDeck();
             }
             return this.cards.pop();
         } catch (final NoSuchElementException e) {
-            throw new IllegalStateException("Deck is empty even after shuffle");
+            throw new IllegalStateException(Constants.DECK_IS_EMPTY_EVEN_AFTER_SHUFFLE);
         }
     }
 
@@ -56,10 +56,10 @@ public class IDeckImpl implements IDeck {
     public Hand dealHand(final int numberOfCards) {
         try {
             if (numberOfCards <= 0) {
-                throw new IllegalArgumentException("Invalid number of cards");
+                throw new IllegalStateException(Constants.INVALID_NUMBER_OF_CARDS);
             }
             if (this.cards.size() < numberOfCards) {
-                System.out.println("Not enough cards in the deck. Shuffling and dealing again.");
+                System.out.println(Constants.NOT_ENOUGH_CARDS_IN_THE_DECK_SHUFFLING_AND_DEALING_AGAIN);
                 initializeGame();
             }
 
@@ -69,7 +69,7 @@ public class IDeckImpl implements IDeck {
             }
             return new Hand(cards);
         } catch (final Exception e) {
-            throw new IllegalStateException("Error while trying to deal Hand", e);
+            throw new IllegalStateException(Constants.ERROR_WHILE_TRYING_TO_DEAL_HAND, e);
         }
     }
 }

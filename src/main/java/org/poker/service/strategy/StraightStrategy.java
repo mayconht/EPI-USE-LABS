@@ -1,10 +1,3 @@
-/**
- * This class represents a strategy for identifying a Straight hand in poker.
- * A Straight is a hand where the ranks of the cards form a sequence, but the suits may be mixed.
- * <p>
- * For example, a hand with the cards 2, 3, 4, 5, and 6 (regardless of suit) is a Straight.
- * </p>
- */
 package org.poker.service.strategy;
 
 import org.poker.model.Card;
@@ -14,13 +7,20 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static org.poker.utils.CardUtils.convertRank;
+
+/**
+ * This class represents a strategy for identifying a Straight hand in poker.
+ * A Straight is a hand where the ranks of the cards form a sequence, but the suits may be mixed.
+ * For example, a hand with the cards 2, 3, 4, 5, and 6 (regardless of suit) is a Straight.
+ */
 public class StraightStrategy implements IHandStrategy {
-    
+
     @Override
     public boolean appliesTo(final Hand hand) {
-        List<Integer> ranks = new ArrayList<>();
-        for (Card card : hand.cards()) {
-            ranks.add(Integer.valueOf(card.rank()));
+        final List<Integer> ranks = new ArrayList<>();
+        for (final Card card : hand.cards()) {
+            ranks.add(convertRank(card.rank()));
         }
 
         Collections.sort(ranks);
