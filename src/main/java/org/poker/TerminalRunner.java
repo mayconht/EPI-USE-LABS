@@ -13,7 +13,16 @@ public class TerminalRunner {
         hand.evaluateHand(deck.dealHand(5));
         hand.evaluateHand(deck.dealHand(5));
         hand.evaluateHand(deck.dealHand(5));
+        hand.evaluateHand(deck.dealHand(4));
+        hand.evaluateHand(deck.dealHand(4));
+        hand.evaluateHand(deck.dealHand(4));
+        hand.evaluateHand(deck.dealHand(4));
+        hand.evaluateHand(deck.dealHand(4));
         hand.evaluateHand(deck.dealHand(5));
+        hand.evaluateHand(deck.dealHand(5));
+        hand.evaluateHand(deck.dealHand(5));
+        hand.evaluateHand(deck.dealHand(5));
+
 
     }
 }

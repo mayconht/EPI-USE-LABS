@@ -3,6 +3,7 @@ package org.poker.service;
 import org.poker.model.Hand;
 import org.poker.service.strategy.EHand;
 import org.poker.service.strategy.IHandStrategy;
+import org.poker.utils.CardUtils;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,7 +29,7 @@ public class HandEvaluator {
     }
 
     public void evaluateHand(final Hand hand) {
-        System.out.println("Hand: " + hand);
+        System.out.println("Hand: " + CardUtils.formatHand(hand));
         for (final IHandStrategy strategy : this.strategies) {
             if (strategy.appliesTo(hand)) {
                 System.out.println("Hand is a " + strategy.getHand().getHandName());
