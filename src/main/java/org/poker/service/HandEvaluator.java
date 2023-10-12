@@ -13,6 +13,7 @@ public class HandEvaluator {
     private final List<IHandStrategy> strategies;
 
     /**
+     * Reference: https://www.baeldung.com/java-strategy-pattern
      * HandEvaluator class is responsible for evaluating poker hands using a list of hand strategies.
      * It initializes the strategies list by obtaining the hand strategy for each possible poker hand,
      * sorting them based on their ranks, and storing the sorted list for later evaluation.
@@ -27,7 +28,7 @@ public class HandEvaluator {
     }
 
     public void evaluateHand(final Hand hand) {
-        System.out.println("Evaluating hand: " + hand.cards());
+        System.out.println("Evaluating hand: " + hand);
         for (final IHandStrategy strategy : this.strategies) {
             if (strategy.appliesTo(hand)) {
                 System.out.println("Hand is a " + strategy.getHand().getHandName());

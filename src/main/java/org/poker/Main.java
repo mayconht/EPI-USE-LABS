@@ -10,6 +10,10 @@ public class Main {
         final HandEvaluator hand = new HandEvaluator();
 
         hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
+        hand.evaluateHand(deck.dealHand(10));
 
     }
 }
