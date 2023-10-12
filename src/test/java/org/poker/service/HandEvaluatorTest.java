@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.poker.model.Card;
 import org.poker.model.Hand;
+import org.poker.utils.CardUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -41,7 +42,8 @@ class HandEvaluatorTest {
         ));
 
         handEvaluator.evaluateHand(hand);
-        final String expectedOutput = "Evaluating hand: " + hand + System.lineSeparator() +
+        final String expectedOutput = "Hand: " + CardUtils.formatHand(hand)
+                + System.lineSeparator() +
                 "Hand is a Full House" + System.lineSeparator();
 
         assertEquals(expectedOutput, this.outContent.toString());
@@ -60,7 +62,8 @@ class HandEvaluatorTest {
         ));
 
         handEvaluator.evaluateHand(hand);
-        final String expectedOutput = "Evaluating hand: " + hand + System.lineSeparator() +
+        final String expectedOutput = "Hand: " + CardUtils.formatHand(hand)
+                + System.lineSeparator() +
                 "Hand is a High Card" + System.lineSeparator();
 
         assertEquals(expectedOutput, this.outContent.toString());
@@ -71,15 +74,16 @@ class HandEvaluatorTest {
         final HandEvaluator handEvaluator = new HandEvaluator();
 
         final Hand hand = new Hand(List.of(
-                new Card("2", "Hearts"),
-                new Card("3", "Clubs"),
-                new Card("4", "Diamonds"),
-                new Card("5", "Spades"),
-                new Card("6", "Hearts")
+                new Card("2", "hearts"),
+                new Card("3", "clubs"),
+                new Card("4", "diamonds"),
+                new Card("5", "spades"),
+                new Card("6", "hearts")
         ));
 
         handEvaluator.evaluateHand(hand);
-        final String expectedOutput = "Evaluating hand: " + hand + System.lineSeparator() +
+        final String expectedOutput = "Hand: " + CardUtils.formatHand(hand)
+                + System.lineSeparator() +
                 "Hand is a Straight" + System.lineSeparator();
 
         assertEquals(expectedOutput, this.outContent.toString());

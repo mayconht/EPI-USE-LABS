@@ -5,11 +5,11 @@ import org.poker.model.Hand;
 
 public class CardUtils {
     public static int convertRank(final String rank) {
-        return switch (rank) {
-            case "Jack" -> 11;
-            case "Queen" -> 12;
-            case "King" -> 13;
-            case "Ace" -> 14;
+        return switch (rank.toLowerCase()) {
+            case "jack" -> 11;
+            case "queen" -> 12;
+            case "king" -> 13;
+            case "ace" -> 14;
             default -> Integer.parseInt(rank);
         };
     }
@@ -26,10 +26,10 @@ public class CardUtils {
 
     private static String convertSuitNameToSymbol(final String suitName) {
         return switch (suitName.toLowerCase()) {
-            case "heart" -> "♥";
-            case "diamond" -> "♦";
-            case "spade" -> "♠";
-            case "club" -> "♣";
+            case "hearts" -> "♥";
+            case "diamonds" -> "♦";
+            case "spades" -> "♠";
+            case "clubs" -> "♣";
             default -> throw new IllegalArgumentException("Unknown suit name: " + suitName);
         };
     }
