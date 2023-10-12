@@ -1,6 +1,6 @@
 package org.poker.model;
 
-public record Card(String suit, String rank) {
+public record Card(String rank, String suit) {
 
     @Override
     public String toString() {

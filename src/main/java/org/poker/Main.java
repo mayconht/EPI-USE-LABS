@@ -8,9 +8,8 @@ public class Main {
 
         final IDeckImpl deck = new IDeckImpl();
         final HandEvaluator hand = new HandEvaluator();
-        hand.evaluateHand(deck.dealHand(4));
-        hand.evaluateHand(deck.dealHand(5));
-        hand.evaluateHand(deck.dealHand(6));
-      
+
+        hand.evaluateHand(deck.dealHand(10));
+
     }
 }

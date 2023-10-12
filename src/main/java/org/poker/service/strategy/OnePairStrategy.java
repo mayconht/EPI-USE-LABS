@@ -1,12 +1,21 @@
 package org.poker.service.strategy;
 
+import org.poker.model.Card;
 import org.poker.model.Hand;
-import org.poker.utils.PokerUtils;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class OnePairStrategy implements IHandStrategy {
     @Override
     public boolean appliesTo(final Hand hand) {
-        return PokerUtils.countPairs(hand, 1);
+        final Set<String> cards = new HashSet<>();
+        for (final Card card : hand.cards()) {
+            if (!cards.add(card.rank())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
