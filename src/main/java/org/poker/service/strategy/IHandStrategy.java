@@ -2,8 +2,8 @@ package org.poker.service.strategy;
 
 import org.poker.model.Hand;
 
-public interface IHandEvaluatorStrategy {
+public interface IHandStrategy {
     boolean appliesTo(Hand hand);
 
-    String getHandName();
+    EHand getHand();
 }

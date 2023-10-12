@@ -2,15 +2,14 @@ package org.poker.service.strategy;
 
 import org.poker.model.Hand;
 
-public class OnePairStrategy implements IHandEvaluatorStrategy {
+public class OnePairStrategy implements IHandStrategy {
     @Override
     public boolean appliesTo(final Hand hand) {
-        System.out.println("OnePairStrategy.appliesTo() called");
-        return true; //TODO implement
+        return true;
     }
 
     @Override
-    public String getHandName() {
-        return "One Pair";
+    public EHand getHand() {
+        return EHand.ONE_PAIR;
     }
 }
