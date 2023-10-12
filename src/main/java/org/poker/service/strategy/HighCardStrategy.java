@@ -5,7 +5,7 @@ import org.poker.model.Hand;
 public class HighCardStrategy implements IHandStrategy {
     @Override
     public boolean appliesTo(final Hand hand) {
-        return false;
+        return true;
     }
 
     @Override
