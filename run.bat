@@ -1,15 +1,7 @@
 @echo off
 
-REM Change the code page to UTF-8
-chcp 65001
+REM Build the Docker image
+docker build -t poker-app .
 
-REM Run tests
-call mvn test
-
-REM Build the project
-call mvn clean package
-
-REM Run the project with arguments
-call java -jar target\Poker-1.0-SNAPSHOT-jar-with-dependencies.jar 4 15
-
-pause
+REM Run the Docker container, exposing port 8080
+docker run -it --rm -p 8080:8080 poker-app
