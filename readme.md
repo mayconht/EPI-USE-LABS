@@ -26,37 +26,19 @@ This project is a command line application that simulates dealing and evaluating
         ```
 
    The scripts will do the following:
-    - Run all tests to ensure the project is working as expected.
-    - Build a runnable JAR file.
-    - Prompt you to enter the number of cards and the number of hands.
-    - Run the application with the provided arguments.
+    - Build a runnable JAR file whiting a Docker container.
+    - Run the application in a Docker container.
 
 3. **Running the application manually**:
-    - First, build the project with Maven:
-        ```bash
-        mvn clean package
-        ```
-
-    - Then, run the application with:
-        ```bash
-        java -jar target/Poker-1.0-SNAPSHOT-jar-with-dependencies.jar <number_of_cards> <number_of_hands>
-        ```
-
-    - Example:
-       ```bash
-       java -jar target/Poker-1.0-SNAPSHOT-jar-with-dependencies.jar 5 12
-       ```
+   ```agsl
+   docker build -t poker-app .
+   docker run -it --rm -p 8080:8080 poker-app
+   ```
+   The application will be available at http://localhost:8080/hand/{value}
+   Example: http://localhost:8080/hand/4
 
 4. **Running the tests**:
-    - First, build the project with Maven:
-        ```bash
-        mvn clean package
-        ```
-
-    - Then, run the tests with:
-        ```bash
-        mvn test
-        ```
+   Tests are not working, Maybe I need to add some dependencies to the pom.xml file.
 
 ## Understanding the Code
 
