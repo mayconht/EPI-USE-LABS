@@ -38,7 +38,7 @@ This project is a command line application that simulates dealing and evaluating
    Example: http://localhost:8080/hand/4
 
 4. **Running the tests**:
-   Tests are not working, Maybe I need to add some dependencies to the pom.xml file.
+   Tests are not working as the focus is spring + docker, Maybe I need to add some dependencies to the pom.xml file so Junity will be able to find tests .
 
 ## Understanding the Code
 
