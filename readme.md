@@ -57,12 +57,13 @@ This project is a command line application that simulates dealing and evaluating
         ```bash
         mvn test
         ```
-      
+
 ## Understanding the Code
 
-- `org.poker.TerminalRunner` is the main class that starts the application.
+- `org.poker.Runner` is the main class that starts the application.
 - `org.poker.model.IDeckImpl` and `org.poker.service.HandEvaluator` are key classes for dealing and evaluating poker
   hands.
 - `org.poker.model` contains the classes that represent the domain model.
 - `org.poker.service` contains the classes that implement the business logic.
 - `org.poker.util` contains utility classes.
+- `org.poker.resources` contains the resource files.
