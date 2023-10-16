@@ -15,7 +15,7 @@ This project is a command line application that simulates dealing and evaluating
     cd EPI-USE-LABS
     ```
 
-2. **Build the project**:
+2. **Build and run the project**:
     - On Windows:
         ```bash
         run.bat
