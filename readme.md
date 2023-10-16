@@ -66,3 +66,7 @@ This project is a command line application that simulates dealing and evaluating
 - `org.poker.model` contains the classes that represent the domain model.
 - `org.poker.service` contains the classes that implement the business logic.
 - `org.poker.util` contains utility classes.
+
+## Running Example 
+![image](https://github.com/mayconht/EPI-USE-LABS/assets/18490169/6da7d799-ab4d-4c6c-87dd-c20ed53abbd2)
+
