@@ -3,11 +3,13 @@ package org.poker.model;
 import org.poker.utils.ConfigReader;
 import org.poker.utils.Constants;
 import org.poker.utils.ShuffleUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 
+@Component
 public class IDeckImpl implements IDeck {
     private final Stack<Card> cards;
 

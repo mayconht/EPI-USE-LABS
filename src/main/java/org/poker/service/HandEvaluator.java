@@ -4,11 +4,14 @@ import org.poker.model.Hand;
 import org.poker.service.strategy.EHand;
 import org.poker.service.strategy.IHandStrategy;
 import org.poker.utils.CardUtils;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
+@Component
 public class HandEvaluator {
 
     private final List<IHandStrategy> strategies;
@@ -28,13 +31,16 @@ public class HandEvaluator {
         this.strategies = strategyList;
     }
 
-    public void evaluateHand(final Hand hand) {
+    public Map<Hand, String> evaluateHand(final Hand hand) {
         System.out.println("Hand: " + CardUtils.formatHand(hand));
+        String handName = "";
         for (final IHandStrategy strategy : this.strategies) {
             if (strategy.appliesTo(hand)) {
+                handName = strategy.getHand().getHandName();
                 System.out.println("Hand is a " + strategy.getHand().getHandName());
                 break;
             }
         }
+        return Map.of(hand, handName);
     }
 }
