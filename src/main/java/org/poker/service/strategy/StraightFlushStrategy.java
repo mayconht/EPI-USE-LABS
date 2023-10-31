@@ -25,10 +25,15 @@ public class StraightFlushStrategy implements IHandStrategy {
                 return false;
             }
         }
-
+        
         final List<Integer> ranks = new ArrayList<>();
         for (final Card card : hand.cards()) {
             ranks.add(CardUtils.convertRank(card.rank()));
+        }
+
+        if (!ranks.contains(13) && ranks.contains(14)) {
+            ranks.remove(ranks.indexOf(14));
+            ranks.add(1);
         }
 
         Collections.sort(ranks);

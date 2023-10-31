@@ -27,8 +27,9 @@ public class StraightStrategy implements IHandStrategy {
             ranks.remove(ranks.indexOf(14));
             ranks.add(1);
         }
-
+        
         Collections.sort(ranks);
+
 
         for (int i = 0; i < ranks.size() - 1; i++) {
             if (ranks.get(i) + 1 != ranks.get(i + 1)) {
