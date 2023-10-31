@@ -23,6 +23,11 @@ public class StraightStrategy implements IHandStrategy {
             ranks.add(convertRank(card.rank()));
         }
 
+        if (!ranks.contains(13) && ranks.contains(14)) {
+            ranks.remove(ranks.indexOf(14));
+            ranks.add(1);
+        }
+
         Collections.sort(ranks);
 
         for (int i = 0; i < ranks.size() - 1; i++) {

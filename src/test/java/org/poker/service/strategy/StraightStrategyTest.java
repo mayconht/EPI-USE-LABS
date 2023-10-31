@@ -26,6 +26,36 @@ class StraightStrategyTest {
     }
 
     @Test
+    void appliesTo_straightPresentWithAce_returnsTrue() {
+        final StraightStrategy straightStrategy = new StraightStrategy();
+
+        final boolean result = straightStrategy.appliesTo(new Hand(List.of(
+                new Card("10", "Hearts"),
+                new Card("Jack", "Clubs"),
+                new Card("Queen", "Diamonds"),
+                new Card("King", "Spades"),
+                new Card("Ace", "Hearts")
+        )));
+
+        assertTrue(result);
+    }
+
+    @Test
+    void appliesTo_straightFlushAceSmall_returnsTrue() {
+        final StraightStrategy straightStrategy = new StraightStrategy();
+
+        final boolean result = straightStrategy.appliesTo(new Hand(List.of(
+                new Card("Ace", "Hearts"),
+                new Card("2", "Hearts"),
+                new Card("3", "Hearts"),
+                new Card("4", "Hearts"),
+                new Card("5", "Hearts")
+        )));
+
+        assertTrue(result);
+    }
+
+    @Test
     void appliesTo_straightNotPresent_returnsFalse() {
         final StraightStrategy straightStrategy = new StraightStrategy();
 
