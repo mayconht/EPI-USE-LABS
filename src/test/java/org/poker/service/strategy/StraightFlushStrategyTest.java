@@ -40,4 +40,19 @@ class StraightFlushStrategyTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void appliesTo_wrapAroundKingAce234_returnsFalse() {
+        final StraightFlushStrategy straightFlushStrategy = new StraightFlushStrategy();
+
+        final boolean result = straightFlushStrategy.appliesTo(new Hand(List.of(
+                new Card("King", "Hearts"),
+                new Card("Ace", "Hearts"),
+                new Card("2", "Hearts"),
+                new Card("3", "Hearts"),
+                new Card("4", "Hearts")
+        )));
+
+        assertFalse(result);
+    }
 }
