@@ -69,4 +69,19 @@ class StraightStrategyTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void appliesTo_wrapAroundKingAce234_returnsFalse() {
+        final StraightStrategy straightStrategy = new StraightStrategy();
+
+        final boolean result = straightStrategy.appliesTo(new Hand(List.of(
+                new Card("King", "Hearts"),
+                new Card("Ace", "Clubs"),
+                new Card("2", "Diamonds"),
+                new Card("3", "Spades"),
+                new Card("4", "Hearts")
+        )));
+
+        assertFalse(result);
+    }
 }
